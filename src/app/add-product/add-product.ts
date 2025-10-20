@@ -1,0 +1,69 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+ import { FormsModule } from '@angular/forms'; // ✅ Import important
+import { Product } from '../product/product';
+import { ProductsService } from '../services/product';
+import { RedirectCommand } from '@angular/router';
+
+@Component({
+  selector: 'app-add-product',
+  imports: [CommonModule,FormsModule ],
+  templateUrl: './add-product.html',
+  styleUrl: './add-product.css'
+})
+export class AddProduct {
+
+    constructor(private productsService: ProductsService) { }
+  
+
+ 
+  product = {
+  category: '',
+  description: '',
+  image_url: '',
+  name: '',
+  price: 0,
+  quantity: 0,
+  sku: '',
+  unit: ''
+};
+
+
+
+    
+
+
+   AddProduct() {
+     console.log('Produit ajouté :', this.product);
+     this.productsService.createProduct(this.product).subscribe({
+       next: (data) => {
+         console.log('✅ Produit créé:', data)
+          alert('Produit ajouté avec succès !');
+          this.resetForm();
+        },
+        error: (err) => {
+          console.error('❌ Erreur création produit:', err);
+          alert('Erreur lors de l\'ajout du produit.');
+        }
+     });
+
+ 
+
+   }
+
+
+resetForm() {
+    this.product = {
+      
+      category: '',
+      description: '',
+      image_url: '',
+      name: '',
+      price: 0,
+      quantity: 0,
+      sku: '',
+      unit: ''
+    };
+  }
+
+}
