@@ -4,18 +4,13 @@
   <div *ngIf="loading" class="loading">
     Chargement...
   </div>
-<<<<<<< HEAD
 <div *ngIf="message" class="error">
     {{ message }}
   </div>
-=======
-
->>>>>>> cc5d24f0c2ae06aa01f0cc9291cff8fc865e4855
   <div *ngIf="error" class="error">
     {{ error }}
   </div>
 
-<<<<<<< HEAD
   <div *ngIf="!loading && !error && products.length > 0" class="products-grid">
     <div *ngFor="let product of products" class="product-card">
       <h3>{{ product.name }} <span class="id">#{{ product.id_product }}</span></h3>
@@ -34,19 +29,3 @@
   </div>
 </div>
 
-=======
-  <div *ngIf="!loading && !error" class="products-grid">
-    <div *ngFor="let product of products" class="product-card">
-       <h3>{{ product.name }} {{ product.id_product }}</h3>
-      <p>{{ product.description }}</p>
-      <p class="price">{{ product.price }} DH</p>
-      <p>Quantité: {{ product.quantity }}</p>
-      <button (click)="deleteProduct(product.id_product!)">Supprimer</button>
-    </div>
-  </div>
-
-  <div *ngIf="products.length === 0 && !loading">
-    Aucun produit disponible
-  </div>
-</div>
->>>>>>> cc5d24f0c2ae06aa01f0cc9291cff8fc865e4855
