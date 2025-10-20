@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Liste des Produits</h2>
+
+  <div *ngIf="loading" class="loading">
+    Chargement...
+  </div>
+<div *ngIf="message" class="error">
+    {{ message }}
+  </div>
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && products.length > 0" class="products-grid">
+    <div *ngFor="let product of products" class="product-card">
+      <h3>{{ product.name }} <span class="id">#{{ product.id_product }}</span></h3>
+      <p class="description">{{ product.description }}</p>
+      <p class="price">{{ product.price }} DH</p>
+      <p class="quantity">Quantité: {{ product.quantity }}</p>
+      <div class="actions">
+        <button class="edit" (click)="getProduct(product.id_product!)">Modifier</button>
+        <button class="delete" (click)="deleteProduct(product.id_product!)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="products.length === 0 && !loading" class="no-products">
+    Aucun produit disponible
+  </div>
+</div>
+

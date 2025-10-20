@@ -1,0 +1,44 @@
+ 
+  .nav {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 10px 0;
+    gap: 20px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .link i {
+    margin-right: 8px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .link:hover {
+    color: #ffdd57;
+  }
+
+  .link:hover i {
+    transform: scale(1.3) rotate(10deg);
+    color: #ffdd57;
+  }
+
+  /* Responsive pour petit écran */
+  @media (max-width: 600px) {
+    .nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+ 
